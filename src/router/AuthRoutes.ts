@@ -7,8 +7,8 @@ const AuthRoutes = {
   children: [
     {
       name: 'Login',
-      path: '/auth/login1',
-      component: () => import('@/views/authentication/auth1/LoginPage1.vue')
+      path: '/auth/login',
+      component: () => import('@/views/authentication/auth1/LoginPage.vue')
     },
     {
       name: 'Register',

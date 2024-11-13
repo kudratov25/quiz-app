@@ -1,31 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import SvgSprite from '@/components/shared/SvgSprite.vue';
-import { useAuthStore } from '@/stores/auth';
-import { Form } from 'vee-validate';
+import { ref } from "vue";
+import SvgSprite from "@/components/shared/SvgSprite.vue";
+import { useAuthStore } from "@/stores/auth";
+import { Form } from "vee-validate";
 
 const checkbox = ref(false);
 const valid = ref(false);
 const show1 = ref(false);
-const password = ref('admin123');
-const username = ref('info@phoenixcoded.co');
 const passwordRules = ref([
-  (v: string) => !!v || 'Password is required',
-  (v: string) => (v && v.length <= 10) || 'Password must be less than 10 characters'
+  (v: string) => !!v || "Password is required",
+  (v: string) => (v && v.length <= 10) || "Password must be less than 10 characters",
 ]);
-const emailRules = ref([(v: string) => !!v || 'E-mail is required', (v: string) => /.+@.+\..+/.test(v) || 'E-mail must be valid']);
+const emailRules = ref([
+  (v: string) => !!v || "E-mail is required",
+  (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+]);
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function validate(values: any, { setErrors }: any) {
   const authStore = useAuthStore();
-  return authStore.login(username.value, password.value).catch((error) => setErrors({ apiError: error }));
+  return authStore
+    .login(username.value, password.value)
+    .catch((error) => setErrors({ apiError: error }));
 }
 </script>
 
 <template>
   <div class="d-flex justify-space-between align-center mt-4">
     <h3 class="text-h3 text-center mb-0">Login</h3>
-    <router-link to="/auth/register1" class="text-primary text-decoration-none">Don't Have an account?</router-link>
+    <router-link to="/auth/register1" class="text-primary text-decoration-none"
+      >Don't Have an account?</router-link
+    >
   </div>
   <Form @submit="validate" class="mt-7 loginForm" v-slot="{ errors, isSubmitting }">
     <div class="mb-6">
@@ -58,8 +63,18 @@ function validate(values: any, { setErrors }: any) {
       >
         <template v-slot:append-inner>
           <v-btn color="secondary" aria-label="icon" icon rounded variant="text">
-            <SvgSprite name="custom-eye-invisible" style="width: 20px; height: 20px" v-if="show1 == false" @click="show1 = !show1" />
-            <SvgSprite name="custom-eye" style="width: 20px; height: 20px" v-if="show1 == true" @click="show1 = !show1" />
+            <SvgSprite
+              name="custom-eye-invisible"
+              style="width: 20px; height: 20px"
+              v-if="show1 == false"
+              @click="show1 = !show1"
+            />
+            <SvgSprite
+              name="custom-eye"
+              style="width: 20px; height: 20px"
+              v-if="show1 == true"
+              @click="show1 = !show1"
+            />
           </v-btn>
         </template>
       </v-text-field>
@@ -76,7 +91,9 @@ function validate(values: any, { setErrors }: any) {
         hide-details
       ></v-checkbox>
       <div class="ml-auto">
-        <router-link to="/auth/forgot-pwd1" class="text-darkText link-hover">Forgot Password?</router-link>
+        <router-link to="/auth/forgot-pwd1" class="text-darkText link-hover"
+          >Forgot Password?</router-link
+        >
       </div>
     </div>
     <v-btn
