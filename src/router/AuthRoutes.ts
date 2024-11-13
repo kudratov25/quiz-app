@@ -12,8 +12,8 @@ const AuthRoutes = {
     },
     {
       name: 'Register',
-      path: '/auth/register1',
-      component: () => import('@/views/authentication/auth1/RegisterPage1.vue')
+      path: '/auth/register',
+      component: () => import('@/views/authentication/auth1/RegisterPage.vue')
     },
     {
       name: 'Forgot Password',
@@ -29,7 +29,12 @@ const AuthRoutes = {
       name: 'Error 404',
       path: '/pages/error',
       component: () => import('@/views/pages/maintenance/error/Error404Page.vue')
-    }
+    },
+    {
+      path: '/auth/:provider/callback',
+      name: 'SocialAuthCallback',
+      component: () => import('@/views/authentication/auth1/SocialAuthCallback.vue')
+    },
   ]
 };
 

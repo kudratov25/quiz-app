@@ -23,7 +23,7 @@ function validate() {
 <template>
   <div class="d-flex justify-space-between align-center">
     <h3 class="text-h3 text-center mb-0">Sign up</h3>
-    <router-link to="/auth/login1" class="text-primary text-decoration-none">Already have an account?</router-link>
+    <router-link to="/auth/login" class="text-primary text-decoration-none">Already have an account?</router-link>
   </div>
   <v-form ref="Regform" lazy-validation action="/dashboards/analytical" class="mt-7 loginForm">
     <v-row class="my-0">
@@ -100,9 +100,9 @@ function validate() {
     <div class="d-sm-inline-flex align-center mt-2 mb-7 mb-sm-0 font-weight-bold">
       <h6 class="text-caption">
         By Signing up, you agree to our
-        <router-link to="/auth/register1" class="text-primary link-hover font-weight-medium">Terms of Service </router-link>
+        <router-link to="/terms-and-conditions" class="text-primary link-hover font-weight-medium">Terms of Service </router-link>
         and
-        <router-link to="/auth/register1" class="text-primary link-hover font-weight-medium">Privacy Policy</router-link>
+        <router-link to="/privacy" class="text-primary link-hover font-weight-medium">Privacy Policy</router-link>
       </h6>
     </div>
     <v-btn color="primary" block class="mt-4" variant="flat" rounded="md" size="large" @click="validate()">Create Account</v-btn>

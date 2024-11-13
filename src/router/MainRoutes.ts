@@ -7,7 +7,7 @@ const MainRoutes = {
   component: () => import('@/layouts/dashboard/DashboardLayout.vue'),
   children: [
     {
-      name: 'Landingpage',
+      name: 'Main',
       path: '/',
       component: () => import('@/views/dashboards/default/DefaultDashboard.vue')
     },
@@ -35,6 +35,16 @@ const MainRoutes = {
       name: 'Shadows',
       path: '/utils/shadows',
       component: () => import('@/views/utilities/shadows/ShadowPage.vue')
+    },
+    {
+      name: 'Privacy',
+      path: '/privacy',
+      component: () => import('@/views/pages/terms_and_conditions/Privacy.vue')
+    },
+    {
+      name: 'Terms',
+      path: '/terms-and-conditions',
+      component: () => import('@/views/pages/terms_and_conditions/Terms.vue')
     }
   ]
 };

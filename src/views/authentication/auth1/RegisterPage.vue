@@ -4,7 +4,7 @@ import AuthRegister from '../authForms/AuthRegister.vue';
 
 // assets
 import facebookImg from '@/assets/images/icons/facebook.svg';
-import twitterImg from '@/assets/images/icons/twitter.svg';
+import githubImg from '@/assets/images/icons/github.svg';
 import googleImg from '@/assets/images/icons/google.svg';
 </script>
 
@@ -38,14 +38,14 @@ import googleImg from '@/assets/images/icons/google.svg';
                       </v-list-item>
                       <v-list-item color="secondary" variant="tonal" href="#" rounded="md" class="mb-2">
                         <v-img
-                          :src="twitterImg"
+                          :src="githubImg"
                           alt="social icon"
                           class="mr-2 d-inline-flex"
                           style="vertical-align: middle"
                           width="16"
                           height="13"
                         />
-                        Sign in with twitter
+                        Sign in with github
                       </v-list-item>
                       <v-list-item color="secondary" variant="tonal" href="#" rounded="md" class="mb-2">
                         <v-img

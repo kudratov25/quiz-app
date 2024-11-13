@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import SvgSprite from "@/components/shared/SvgSprite.vue";
 import { useAuthStore } from "@/stores/auth";
 import { Form } from "vee-validate";
 
 const checkbox = ref(false);
-const valid = ref(false);
 const show1 = ref(false);
+const password = ref("");
+const email = ref("");
 const passwordRules = ref([
   (v: string) => !!v || "Password is required",
-  (v: string) => (v && v.length <= 10) || "Password must be less than 10 characters",
 ]);
 const emailRules = ref([
   (v: string) => !!v || "E-mail is required",
@@ -20,7 +19,7 @@ const emailRules = ref([
 function validate(values: any, { setErrors }: any) {
   const authStore = useAuthStore();
   return authStore
-    .login(username.value, password.value)
+    .login(email.value, password.value)
     .catch((error) => setErrors({ apiError: error }));
 }
 </script>
@@ -28,7 +27,7 @@ function validate(values: any, { setErrors }: any) {
 <template>
   <div class="d-flex justify-space-between align-center mt-4">
     <h3 class="text-h3 text-center mb-0">Login</h3>
-    <router-link to="/auth/register1" class="text-primary text-decoration-none"
+    <router-link to="/auth/register" class="text-primary text-decoration-none"
       >Don't Have an account?</router-link
     >
   </div>
@@ -37,7 +36,7 @@ function validate(values: any, { setErrors }: any) {
       <v-label>Email Address</v-label>
       <v-text-field
         aria-label="email address"
-        v-model="username"
+        v-model="email"
         :rules="emailRules"
         class="mt-2"
         density="comfortable"
@@ -104,7 +103,6 @@ function validate(values: any, { setErrors }: any) {
       variant="flat"
       size="large"
       rounded="md"
-      :disabled="valid"
       type="submit"
     >
       Login</v-btn
