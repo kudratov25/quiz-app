@@ -59,23 +59,6 @@ function validate() {
       </v-col>
     </v-row>
     <div class="mb-6">
-      <v-label>Company</v-label>
-      <v-text-field hide-details="auto" variant="outlined" class="mt-2" color="primary" placeholder="Demo Inc."></v-text-field>
-    </div>
-    <div class="mb-6">
-      <v-label>Email Address*</v-label>
-      <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        placeholder="demo@company.com"
-        class="mt-2"
-        required
-        hide-details="auto"
-        variant="outlined"
-        color="primary"
-      ></v-text-field>
-    </div>
-    <div class="mb-6">
       <v-label>Password</v-label>
       <v-text-field
         v-model="password"

@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import Logo from '@/layouts/dashboard/logo/LogoMain.vue';
 import AuthRegister from '../authForms/AuthRegister.vue';
+import SocialLogin from '../authForms/SocialLogins.vue'
 
-// assets
-import facebookImg from '@/assets/images/icons/facebook.svg';
-import githubImg from '@/assets/images/icons/github.svg';
-import googleImg from '@/assets/images/icons/google.svg';
 </script>
 
 <template>
@@ -24,41 +21,8 @@ import googleImg from '@/assets/images/icons/google.svg';
                 <v-card-text class="pa-sm-10 pa-6">
                   <div class="text-center">
                     <Logo class="mb-3" />
-                    <v-list aria-label="social list" aria-busy="true">
-                      <v-list-item color="secondary" variant="tonal" href="#" rounded="md" class="mb-2">
-                        <v-img
-                          :src="facebookImg"
-                          alt="social icon"
-                          class="mr-2 d-inline-flex"
-                          style="vertical-align: text-top"
-                          width="9"
-                          height="16"
-                        />
-                        Sign in with facebook
-                      </v-list-item>
-                      <v-list-item color="secondary" variant="tonal" href="#" rounded="md" class="mb-2">
-                        <v-img
-                          :src="githubImg"
-                          alt="social icon"
-                          class="mr-2 d-inline-flex"
-                          style="vertical-align: middle"
-                          width="16"
-                          height="13"
-                        />
-                        Sign in with github
-                      </v-list-item>
-                      <v-list-item color="secondary" variant="tonal" href="#" rounded="md" class="mb-2">
-                        <v-img
-                          :src="googleImg"
-                          alt="social icon"
-                          class="mr-2 d-inline-flex"
-                          style="vertical-align: text-top"
-                          width="16"
-                          height="16"
-                        />
-                        Sign in with google
-                      </v-list-item>
-                    </v-list>
+                    <SocialLogin />
+
                     <v-row>
                       <v-col cols="12" class="d-flex align-center">
                         <v-divider />

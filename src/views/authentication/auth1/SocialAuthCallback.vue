@@ -2,11 +2,13 @@
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import api from "@/utils/api";
+import { useAuthStore } from "@/stores/auth";
 
 const loading = ref(true);
 const authFailed = ref(false);
 const route = useRoute();
 const router = useRouter();
+const auth = useAuthStore();
 
 onMounted(async () => {
   const provider = route.params.provider as string;
@@ -21,8 +23,9 @@ onMounted(async () => {
     });
 
     if (response.data.user) {
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-      router.push({ name: "Main" });
+      localStorage.setItem("user", JSON.stringify(response.data));
+      auth.user = response.data
+      router.push("/dashboard/default");
     } else {
       console.error("Authentication failed - Token not received");
     }
