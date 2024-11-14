@@ -31,6 +31,7 @@ function validate(values: any, { setErrors }: any) {
       >Don't Have an account?</router-link
     >
   </div>
+  
   <Form @submit="validate" class="mt-7 loginForm" v-slot="{ errors, isSubmitting }">
     <div class="mb-6">
       <v-label>Email Address</v-label>
