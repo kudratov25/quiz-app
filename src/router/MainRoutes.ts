@@ -17,9 +17,9 @@ const MainRoutes = {
       component: () => import('@/views/dashboards/default/DefaultDashboard.vue')
     },
     {
-      name: 'Starter',
-      path: '/starter',
-      component: () => import('@/views/StarterPage.vue')
+      name: 'Quizzes',
+      path: '/quizzes',
+      component: () => import('@/views/QuizzesPage.vue')
     },
     {
       name: 'Typography',

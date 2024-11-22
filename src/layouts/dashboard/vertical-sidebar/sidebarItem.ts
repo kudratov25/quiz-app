@@ -51,9 +51,9 @@ const sidebarItem: menu[] = [
   },
   { header: 'Others' },
   {
-    title: 'Sample Page',
-    icon: 'custom-sample',
-    to: '/starter'
+    title: 'Quizzes',
+    icon: 'custom-colorpick',
+    to: '/quizzes'
   },
   {
     title: 'Documentation',
