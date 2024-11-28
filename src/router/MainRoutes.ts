@@ -45,7 +45,12 @@ const MainRoutes = {
       name: 'Terms',
       path: '/terms-and-conditions',
       component: () => import('@/views/pages/terms_and_conditions/Terms.vue')
-    }
+    },
+    {
+      path: '/quizzes/:id/play',
+      name: 'quizPlay',
+      component: () => import('@/views/quizzes/QuizzPlayPage.vue'),
+    },
   ]
 };
 

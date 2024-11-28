@@ -4,6 +4,8 @@ import BaseBreadcrumb from "@/components/shared/BaseBreadcrumb.vue";
 import UiParentCard from "@/components/shared/UiParentCard.vue";
 import api from "@/utils/api";
 
+const loading = ref(true);
+
 interface Quiz {
   id: number;
   title: string;
@@ -28,6 +30,8 @@ onMounted(async () => {
     quizzes.value = response.data;
   } catch (error) {
     console.log("Error fetching quizzes:", error);
+  } finally {
+    loading.value = false;
   }
 });
 
@@ -48,9 +52,10 @@ function closeModal() {
   <v-container>
     <!-- Breadcrumb -->
     <BaseBreadcrumb :title="page.title" :breadcrumbs="breadcrumbs"></BaseBreadcrumb>
-
     <!-- Quiz List -->
-    <v-row class="mt-4" dense>
+    <v-row class="mt-4" dense justify="center" align="center" style="min-height: 400px">
+      <v-progress-circular v-if="loading" indeterminate color="primary" size="50">
+      </v-progress-circular>
       <v-col cols="12" md="6" lg="4" v-for="quiz in quizzes" :key="quiz.id">
         <UiParentCard :title="quiz.title" class="quiz-card">
           <div>
